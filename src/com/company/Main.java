@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -75,6 +76,20 @@ public class Main {
         ArrayList<Integer> list = new ArrayList<>();
         while (scanner.hasNextInt()) {
             list.add(scanner.nextInt());
+        }
+        list.sort(Comparator.naturalOrder());
+        for (Integer integer : list) {
+            if (integer % 3 == 0) {
+                xList.add(integer);
+                if (integer % 7 == 0) {
+                    sList.add(integer);
+                    mList.add(integer);
+                }
+            } else {
+                if (integer % 7 == 0) {
+                    sList.add(integer);
+                } else hasAnyMore = true;
+            }
         }
     }
 
