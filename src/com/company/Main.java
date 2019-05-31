@@ -16,6 +16,7 @@ public class Main {
             "help\t\t- вывод справки по командам \n";
     private static final String DEFAULT_MENU_TEXT = "вы ввели неверную команду, пожлуйста повторите ввод, \n" +
                                                     "для того, чтобы вывести список команд введите \"help\"";
+    private static final String EMPTY_LIST_TEXT = "Список %s пуст";
 
     private static boolean hasAnyMore = false;
     private static ArrayList<Integer> xList = new ArrayList<>();
@@ -36,7 +37,9 @@ public class Main {
                 initArray();
                 break;
             case "print":
-                print();
+                print(Type.X_TYPE);
+                print(Type.S_TYPE);
+                print(Type.M_TYPE);
                 break;
             case "print X":
                 print(Type.X_TYPE);
@@ -93,27 +96,37 @@ public class Main {
         }
     }
 
-    private static void print() {
-    }
-
     private static void print(Type type) {
         switch (type) {
             case X_TYPE:
-                print(xList);
+                if (xList.isEmpty()) {
+                    System.out.println(String.format(EMPTY_LIST_TEXT, "X"));
+                } else {
+                    print(xList);
+                }
                 break;
             case M_TYPE:
-                print(mList);
+                if (mList.isEmpty()) {
+                    System.out.println(String.format(EMPTY_LIST_TEXT, "M"));
+                } else {
+                    print(mList);
+                }
                 break;
             case S_TYPE:
-                print(sList);
+                if (sList.isEmpty()) {
+                    System.out.println(String.format(EMPTY_LIST_TEXT, "S"));
+                } else {
+                    print(sList);
+                }
                 break;
         }
     }
 
     private static void print(List<Integer> list) {
         for (Integer integer : list) {
-            System.out.println(integer + ", ");
+            System.out.print(integer + ", ");
         }
+        System.out.println();
     }
 
     private static void clear(Type type) {
