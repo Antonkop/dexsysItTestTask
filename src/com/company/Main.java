@@ -53,14 +53,14 @@ public class Main {
             case "anyMore":
                 System.out.println(hasAnyMore);
                 break;
-            case "clearX":
-                clear(Type.X_TYPE);
+            case "clear X":
+                xList.clear();
                 break;
-            case "clearS":
-                clear(Type.S_TYPE);
+            case "clear S":
+                sList.clear();
                 break;
-            case "clearM":
-                clear(Type.M_TYPE);
+            case "clear M":
+                mList.clear();
                 break;
             case "merge":
                 merge();
@@ -127,10 +127,6 @@ public class Main {
             System.out.print(integer + ", ");
         }
         System.out.println();
-    }
-
-    private static void clear(Type type) {
-
     }
 
     private static void merge() {
