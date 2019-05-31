@@ -130,6 +130,20 @@ public class Main {
     }
 
     private static void merge() {
-
+        ArrayList<Integer> list = new ArrayList<>();
+        list.addAll(mList);
+        list.addAll(xList);
+        list.addAll(sList);
+        /*
+         * Из задания не ясно нужно ли сортировать и удалять дубликаты из этого списка,
+         * на всякий случай ниже закоментирован код реализующий удаление дубликатов и сортировку
+          */
+//        HashSet<Integer> hashSet = new HashSet<>(list);
+//        list = new ArrayList<>(hashSet);
+//        list.sort(Comparator.naturalOrder());
+        print(list);
+        mList.clear();
+        sList.clear();
+        xList.clear();
     }
 }
