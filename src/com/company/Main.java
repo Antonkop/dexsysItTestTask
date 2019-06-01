@@ -17,6 +17,8 @@ public class Main {
     private static final String DEFAULT_MENU_TEXT = "вы ввели неверную команду, пожлуйста повторите ввод, \n" +
                                                     "для того, чтобы вывести список команд введите \"help\"";
     private static final String EMPTY_LIST_TEXT = "Список %s пуст";
+    private static final String NEXT_INT_ARRAY_INIT = "введите следующее число, \n" +
+            "либо введите любой текст для прекращения инициализации массивов:";
 
     private static boolean hasAnyMore = false;
     private static ArrayList<Integer> xList = new ArrayList<>();
@@ -77,10 +79,13 @@ public class Main {
     private static void initArray() {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Integer> list = new ArrayList<>();
+        System.out.println("введите число:");
         while (scanner.hasNextInt()) {
             list.add(scanner.nextInt());
+            System.out.println(NEXT_INT_ARRAY_INIT);
         }
         list.sort(Comparator.naturalOrder());
+        clearAllLists();
         for (Integer integer : list) {
             if (integer % 3 == 0) {
                 xList.add(integer);
@@ -142,8 +147,12 @@ public class Main {
 //        list = new ArrayList<>(hashSet);
 //        list.sort(Comparator.naturalOrder());
         print(list);
+        clearAllLists();
+    }
+
+    private static void clearAllLists() {
         mList.clear();
-        sList.clear();
         xList.clear();
+        sList.clear();
     }
 }
